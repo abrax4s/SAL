@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92130474-476e-4c19-9ba7-cbbfc18d9bed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="@name_Equipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="@horaInicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="@horaFin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[EXEC Report_Prgm $P{@name_Equipo} , $P{@horaInicio} , $P{@horaFin}]]>
+	</queryString>
+	<field name="Clave_Prgm" class="java.lang.Integer"/>
+	<field name="Nombre_Us" class="java.lang.String"/>
+	<field name="A_P_User" class="java.lang.String"/>
+	<field name="A_M_User" class="java.lang.String"/>
+	<field name="PRGM_Eq" class="java.lang.String"/>
+	<field name="PRGM_Nombre" class="java.lang.String"/>
+	<field name="PRGM_Hora" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="b1f891f1-84d4-45e3-9202-df60fc861d41"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[REGISTRO DE EJECUCIÓN DE PROGRAMAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="20" uuid="42270eb1-bddd-4194-964c-82e7d2e48f52"/>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="77" height="20" uuid="2d369414-63c2-4013-bbe8-d6ad4d83f636"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="0" width="82" height="20" uuid="a1daaddc-eae3-4b9d-bbd3-ea457453f81b"/>
+				<text><![CDATA[Apellido P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="0" width="84" height="20" uuid="066a9e08-98fc-42e8-a367-e33fc6c997d3"/>
+				<text><![CDATA[Apellido M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="0" width="76" height="20" uuid="7011ca9c-cbde-41e8-9c01-6959ad777cd5"/>
+				<text><![CDATA[Equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="0" width="100" height="20" uuid="9464a5b3-d860-413d-9186-e8ed9d8fe445"/>
+				<text><![CDATA[Programa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="0" width="67" height="20" uuid="49db1ee4-10d1-494d-8d1a-02df3450067e"/>
+				<text><![CDATA[PRGM_Hora]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20" uuid="577f7a86-513a-49d2-bd02-1f3e6669959e"/>
+				<textFieldExpression><![CDATA[$F{Clave_Prgm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="77" height="20" uuid="95e1286e-b3cc-4954-ab13-ac90f1090234"/>
+				<textFieldExpression><![CDATA[$F{Nombre_Us}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="0" width="82" height="20" uuid="7f157aa4-d80b-43c4-aa53-81ee783ded82"/>
+				<textFieldExpression><![CDATA[$F{A_P_User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="0" width="84" height="20" uuid="3b8acfa8-7978-4bea-a779-a95b9dc1e564"/>
+				<textFieldExpression><![CDATA[$F{A_M_User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="0" width="76" height="20" uuid="a8c84eaa-ce8a-4cd9-951a-95a3fe4aad47"/>
+				<textFieldExpression><![CDATA[$F{PRGM_Eq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="100" height="20" uuid="a76167a9-8511-4c82-a8c9-0f03b23113a5"/>
+				<textFieldExpression><![CDATA[$F{PRGM_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="0" width="67" height="20" uuid="561dc66b-f158-4e35-857e-f549f93aac89"/>
+				<textFieldExpression><![CDATA[$F{PRGM_Hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="12" width="540" height="42" uuid="a3f208e1-fc8f-4cc2-a77c-e579767566ed"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Sistema de Control Administrativo de Laboratorios]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

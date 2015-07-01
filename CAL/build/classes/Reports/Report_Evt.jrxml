@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="55178de6-d8b2-4d42-8ed9-a4f3f69e979f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="@nameEquipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="@horaInicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="@horaFin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[EXEC Report_Evt $P{@nameEquipo} , $P{@horaInicio} , $P{@horaFin}]]>
+	</queryString>
+	<field name="Clave_Evnt" class="java.lang.Integer"/>
+	<field name="Nombre_Us" class="java.lang.String"/>
+	<field name="A_P_User" class="java.lang.String"/>
+	<field name="A_M_User" class="java.lang.String"/>
+	<field name="EVN_Eq" class="java.lang.String"/>
+	<field name="EVN_Nombre" class="java.lang.String"/>
+	<field name="EVN_Hora" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="30" width="425" height="49" uuid="4ecc4643-9a7a-40a7-b145-c819cc7d3044"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE EVENTOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="81" height="20" uuid="bdb1ed58-2055-4ff5-93dd-d098b4f53a8a"/>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="0" width="77" height="20" uuid="84dc94ac-40f3-4eee-9baf-f662c91bd024"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="78" height="20" uuid="62257517-b69c-4f7c-9080-efd62074eec4"/>
+				<text><![CDATA[Apellido P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="0" width="77" height="20" uuid="64d3c9a9-5aa6-4634-b0ee-3fd6fc40f498"/>
+				<text><![CDATA[Apellido M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="0" width="69" height="20" uuid="cd1dcb22-2afa-484b-b5f2-9ed137d86ddb"/>
+				<text><![CDATA[Equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="0" width="88" height="20" uuid="4e33480e-5098-4065-874a-8feecd72b2b8"/>
+				<text><![CDATA[Evento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="85" height="20" uuid="19bfcec3-e33b-4166-9e7d-71dea651d035"/>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="81" height="20" uuid="6aeef08a-f803-4e94-acb2-70da46355ae9"/>
+				<textFieldExpression><![CDATA[$F{Clave_Evnt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="0" width="77" height="20" uuid="140cf2d7-1685-49d0-a17f-df90548c6869"/>
+				<textFieldExpression><![CDATA[$F{Nombre_Us}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="78" height="20" uuid="eda04676-3dfc-4ffa-86f0-8e1f27b1c041"/>
+				<textFieldExpression><![CDATA[$F{A_P_User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="0" width="77" height="20" uuid="9712536e-210f-41e7-ab6e-62b79c9f273d"/>
+				<textFieldExpression><![CDATA[$F{A_M_User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="0" width="69" height="20" uuid="97909fe0-dcfd-44c7-95d1-096025a250be"/>
+				<textFieldExpression><![CDATA[$F{EVN_Eq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="88" height="20" uuid="8f5f240a-9fe0-4cfb-9e0c-632ffd6badaa"/>
+				<textFieldExpression><![CDATA[$F{EVN_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="85" height="20" uuid="385b5bd9-c858-488a-a95d-8f2b957360de"/>
+				<textFieldExpression><![CDATA[$F{EVN_Hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="542" height="34" uuid="2ba031b9-3339-44db-b7a3-139688c3a057"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Sistema de Control Administrativo de Laboratorios]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

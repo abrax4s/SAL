@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b278624-1e3b-45e2-93fb-1461b8726474">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="@name_Equipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="@horaInicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="@horaFin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[EXEC  Report_Err $P{@name_Equipo} , $P{@horaInicio} , $P{@horaFin}]]>
+	</queryString>
+	<field name="Clave_Err" class="java.lang.Integer"/>
+	<field name="Nombre_Us" class="java.lang.String"/>
+	<field name="A_P_User" class="java.lang.String"/>
+	<field name="A_M_User" class="java.lang.String"/>
+	<field name="ERR_Eq" class="java.lang.String"/>
+	<field name="ERR_Nombre" class="java.lang.String"/>
+	<field name="ERR_Hora" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="62" y="25" width="443" height="54" uuid="267e94ff-bd9d-4a60-b42a-e194d494dfad"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[REGISTRO DE ERRORES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="20" uuid="0215e2de-2092-457e-b07e-b40192ca19f9"/>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="75" height="20" uuid="1baefb5f-a5dc-4b7c-a300-03508297f84e"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="0" width="81" height="20" uuid="98809970-03e4-436f-a538-6e0024795491"/>
+				<text><![CDATA[Apellido P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="90" height="20" uuid="307c0f43-6cb6-4918-8c11-b02f01519e05"/>
+				<text><![CDATA[Apellido M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="0" width="70" height="20" uuid="defc3a54-dc82-4491-81dc-1ce16df8b82c"/>
+				<text><![CDATA[Equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="0" width="83" height="20" uuid="8192f782-1f3f-4a0d-b1a5-a0adf63625c0"/>
+				<text><![CDATA[Error]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="84" height="20" uuid="4ed9dcfe-ff88-4008-b99c-8f0f873523e9"/>
+				<text><![CDATA[ERR_Hora]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="72" height="20" uuid="ce40b179-2f7d-445a-9f55-4f0f7c143776"/>
+				<textFieldExpression><![CDATA[$F{Clave_Err}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="75" height="20" uuid="d7b5da50-347f-4858-86b4-a46ec081f4be"/>
+				<textFieldExpression><![CDATA[$F{Nombre_Us}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="0" width="81" height="20" uuid="00ceece4-24c1-4a20-b1ba-4cd61bb5d8f7"/>
+				<textFieldExpression><![CDATA[$F{A_P_User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="90" height="20" uuid="86a7307e-c516-4fdc-9bf4-33e1a7f7de46"/>
+				<textFieldExpression><![CDATA[$F{A_M_User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="70" height="20" uuid="28f04a31-e658-4d24-ac70-24bef9687034"/>
+				<textFieldExpression><![CDATA[$F{ERR_Eq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="0" width="83" height="20" uuid="7f588d1c-6d5a-4267-93b7-9f9526290c16"/>
+				<textFieldExpression><![CDATA[$F{ERR_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="84" height="20" uuid="87846c84-af1b-416e-9d7d-33751b572e2a"/>
+				<textFieldExpression><![CDATA[$F{ERR_Hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="18" width="535" height="36" uuid="975c82c2-6e6d-4245-800e-6cbb79fb937a"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Sistema de Control Administrativo de Laboratorios]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
